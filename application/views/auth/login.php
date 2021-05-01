@@ -2,9 +2,11 @@
 	<!-- /.login-logo -->
 	<div class="login-box-body">
 	<h3 class="text-center mt-0 mb-4">
-		<b>U</b>jian <b>B</b>akat <b>M</b>inat
-	</h3>  
-	<br><br>
+	<b style="color: cornflowerblue;">U</b>JIAN <b style="color: cornflowerblue;">M</b>INAT <b style="color: cornflowerblue;">B</b>AKAT
+		<br>
+		<b style="color: cornflowerblue;">S</b>MK <b style="color: cornflowerblue;">I</b>SLAM <b style="color: cornflowerblue;">B</b>ATU</b>
+	</h3>
+	<p class="login-box-msg">Login</p>  
 	<div id="infoMessage" class="text-center"><?php echo $message;?></div>
 
 	<?= form_open("auth/cek_login", array('id'=>'login'));?>

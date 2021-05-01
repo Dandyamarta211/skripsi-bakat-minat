@@ -8,8 +8,8 @@
 	</div>
     <div class="box-body">
 		<div class="mt-2 mb-4">
-            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-sm bg-purple btn-flat"><i class="fa fa-plus"></i> Tambah Data</button>
-            <a href="<?=base_url('jurusan/import')?>" class="btn btn-sm btn-flat btn-success"><i class="fa fa-upload"></i> Import</a>
+            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-sm bg-green btn-flat"><i class="fa fa-plus"></i> Tambah Data Jurusan</button>
+            <a href="<?=base_url('jurusan/import')?>" class="btn btn-sm btn-flat btn-primary"><i class="fa fa-upload"></i> Import</a>
             <button type="button" onclick="reload_ajax()" class="btn btn-sm btn-flat btn-default"><i class="fa fa-refresh"></i> Reload</button>
 			<div class="pull-right">
 				<button onclick="bulk_edit()" class="btn btn-sm btn-warning btn-flat" type="button"><i class="fa fa-edit"></i> Edit</button>

@@ -44,3 +44,4 @@
     var banyak = '<?=$banyak;?>';
 </script>
 <script src="<?=base_url()?>assets/dist/js/app/master/jurusan/add.js"></script>
+<link href="assets/img/smk.png" rel="shortcut icon">

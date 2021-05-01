@@ -35,9 +35,9 @@ class Dashboard extends CI_Controller {
 				'icon'		=> 'building-o'
 			],
 			[
-				'box' 		=> 'yellow-active',
-				'total' 	=> $this->dashboard->total('dosen'),
-				'title'		=> 'Dosen',
+				'box' 		=> 'purple-active',
+				'total' 	=> $this->dashboard->total('guru'),
+				'title'		=> 'Guru',
 				'icon'		=> 'user-secret'
 			],
 		];
@@ -57,11 +57,11 @@ class Dashboard extends CI_Controller {
 		if ( $this->ion_auth->is_admin() ) {
 			$data['info_box'] = $this->admin_box();
 		} elseif ( $this->ion_auth->in_group('guru') ) {
-			$matkul = ['matkul' => 'dosen.matkul_id=matkul.id_matkul'];
-			$data['dosen'] = $this->dashboard->get_where('dosen', 'nip', $user->username, $matkul)->row();
+			$keterampilan = ['keterampilan' => 'guru.keterampilan_id=keterampilan.id_keterampilan'];
+			$data['guru'] = $this->dashboard->get_where('guru', 'nip', $user->username, $keterampilan)->row();
 
-			$kelas = ['kelas' => 'kelas_dosen.kelas_id=kelas.id_kelas'];
-			$data['kelas'] = $this->dashboard->get_where('kelas_dosen', 'dosen_id' , $data['dosen']->id_dosen, $kelas, ['nama_kelas'=>'ASC'])->result();
+			$kelas = ['kelas' => 'kelas_guru.kelas_id=kelas.id_kelas'];
+			$data['kelas'] = $this->dashboard->get_where('kelas_guru', 'guru_id' , $data['guru']->id_guru, $kelas, ['nama_kelas'=>'ASC'])->result();
 		}else{
 			$join = [
 				'kelas b' 	=> 'a.kelas_id = b.id_kelas',

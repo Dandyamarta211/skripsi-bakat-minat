@@ -15,17 +15,17 @@
                         <div class="form-group col-sm-12">
                             <label>Guru (Keterampilan)</label>
                             <?php if( $this->ion_auth->is_admin() ) : ?>
-                            <select name="dosen_id" required="required" id="dosen_id" class="select2 form-group" style="width:100% !important">
+                            <select name="guru_id" required="required" id="guru_id" class="select2 form-group" style="width:100% !important">
                                 <option value="" disabled selected>Pilih Guru</option>
-                                <?php foreach ($dosen as $d) : ?>
-                                    <option value="<?=$d->id_dosen?>:<?=$d->matkul_id?>"><?=$d->nama_dosen?> (<?=$d->nama_matkul?>)</option>
+                                <?php foreach ($guru as $d) : ?>
+                                    <option value="<?=$d->id_guru?>:<?=$d->keterampilan_id?>"><?=$d->nama_guru?> (<?=$d->nama_keterampilan?>)</option>
                                 <?php endforeach; ?>
                             </select>
-                            <small class="help-block" style="color: #dc3545"><?=form_error('dosen_id')?></small>
+                            <small class="help-block" style="color: #dc3545"><?=form_error('guru_id')?></small>
                             <?php else : ?>
-                            <input type="hidden" name="dosen_id" value="<?=$dosen->id_dosen;?>">
-                            <input type="hidden" name="matkul_id" value="<?=$dosen->matkul_id;?>">
-                            <input type="text" readonly="readonly" class="form-control" value="<?=$dosen->nama_dosen; ?> (<?=$dosen->nama_matkul; ?>)">
+                            <input type="hidden" name="guru_id" value="<?=$guru->id_guru;?>">
+                            <input type="hidden" name="keterampilan_id" value="<?=$guru->keterampilan_id;?>">
+                            <input type="text" readonly="readonly" class="form-control" value="<?=$guru->nama_guru; ?> (<?=$guru->nama_keterampilan; ?>)">
                             <?php endif; ?>
                         </div>
                         

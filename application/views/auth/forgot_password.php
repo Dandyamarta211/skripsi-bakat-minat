@@ -1,7 +1,8 @@
 <div class="login-box pt-5">
 	<!-- /.login-logo -->
 	<div class="login-logo">
-		<a href="<?=base_url('login')?>"><b>CBT</b>APP</a>
+		<a href="<?=base_url('login')?>"><b>Ujian</b>Bakat Minat</a>
+		<a href="<?=base_url('login')?>"><b>Smk</b>Islam Batu</a>
 	</div>
 
 	<div class="login-box-body">

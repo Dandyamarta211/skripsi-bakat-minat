@@ -44,12 +44,12 @@
             <div class="col-sm-6">
                 <table class="table w-100">
                     <tr>
-                        <th>Mata Kuliah</th>
-                        <td><?=$ujian->nama_matkul?></td>
+                        <th>Keterampilan</th>
+                        <td><?=$ujian->nama_keterampilan?></td>
                     </tr>
                     <tr>
-                        <th>Dosen</th>
-                        <td><?=$ujian->nama_dosen?></td>
+                        <th>Guru</th>
+                        <td><?=$ujian->nama_guru?></td>
                     </tr>
                     <tr>
                         <th>Nilai Terendah</th>

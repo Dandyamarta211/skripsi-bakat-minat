@@ -52,7 +52,7 @@
 </div>
 
 <script type="text/javascript">
-	var id_dosen = '<?=$dosen->id_dosen?>';
+	var id_guru = '<?=$guru->id_guru?>';
 </script>
 
 <script src="<?=base_url()?>assets/dist/js/app/ujian/data.js"></script>

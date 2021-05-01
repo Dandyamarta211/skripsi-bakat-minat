@@ -17,7 +17,7 @@
                     </tr>
                     <tr>
                         <th>Guru</th>
-                        <td><?=$ujian->nama_dosen?></td>
+                        <td><?=$ujian->nama_guru?></td>
                     </tr>
                     <tr>
                         <th>Kelas/Jurusan</th>
@@ -80,7 +80,7 @@
                         <?php else : ?>
                         <div class="callout callout-danger">
                             Waktu untuk menekan tombol <strong>"MULAI"</strong> sudah habis.<br/>
-                            Silahkan hubungi dosen anda untuk bisa mengikuti ujian pengganti.
+                            Silahkan hubungi guru anda untuk bisa mengikuti ujian pengganti.
                         </div>
                         <?php endif;?>
                     </div>

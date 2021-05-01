@@ -20,8 +20,8 @@
 			<!-- Optionally, you can add icons to the links -->
 			<?php 
 			$page = $this->uri->segment(1);
-			$master = ["jurusan", "kelas", "matkul", "dosen", "mahasiswa"];
-			$relasi = ["kelasdosen", "jurusanmatkul"];
+			$master = ["jurusan", "kelas", "keterampilan", "guru", "siswa"];
+			$relasi = ["kelasguru", "jurusanketerampilan"];
 			$users = ["users"];
 			?>
 			<li class="<?= $page === 'dashboard' ? "active" : "" ?>"><a href="<?=base_url('dashboard')?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
@@ -45,20 +45,20 @@
 							Kelas
 						</a>
 					</li>
-					<li class="<?=$page==='matkul'?"active":""?>">
-						<a href="<?=base_url('matkul')?>">
+					<li class="<?=$page==='keterampilan'?"active":""?>">
+						<a href="<?=base_url('keterampilan')?>">
 							<i class="fa fa-circle-o"></i>
 							Keterampilan
 						</a>
 					</li>
-					<li class="<?=$page==='dosen'?"active":""?>">
-						<a href="<?=base_url('dosen')?>">
+					<li class="<?=$page==='guru'?"active":""?>">
+						<a href="<?=base_url('guru')?>">
 							<i class="fa fa-circle-o"></i>
 							Guru
 						</a>
 					</li>
-					<li class="<?=$page==='mahasiswa'?"active":""?>">
-						<a href="<?=base_url('mahasiswa')?>">
+					<li class="<?=$page==='siswa'?"active":""?>">
+						<a href="<?=base_url('siswa')?>">
 							<i class="fa fa-circle-o"></i>
 							Siswa
 						</a>
@@ -72,14 +72,14 @@
 					</span>
 				</a>
 				<ul class="treeview-menu">
-					<li class="<?=$page==='kelasdosen'?"active":""?>">
-						<a href="<?=base_url('kelasdosen')?>">
+					<li class="<?=$page==='kelasguru'?"active":""?>">
+						<a href="<?=base_url('kelasguru')?>">
 							<i class="fa fa-circle-o"></i>
 							Kelas - Guru
 						</a>
 					</li>
-					<li class="<?=$page==='jurusanmatkul'?"active":""?>">
-						<a href="<?=base_url('jurusanmatkul')?>">
+					<li class="<?=$page==='jurusanketerampilan'?"active":""?>">
+						<a href="<?=base_url('jurusanketerampilan')?>">
 							<i class="fa fa-circle-o"></i>
 							Jurusan - Keterampilan						</a>
 					</li>
@@ -89,7 +89,7 @@
 			<?php if( $this->ion_auth->is_admin() || $this->ion_auth->in_group('guru') ) : ?>
 			<li class="<?=$page==='soal'?"active":""?>">
 				<a href="<?=base_url('soal')?>" rel="noopener noreferrer">
-					<i class="fa fa-file-text-o"></i> <span>Bank Soal</span>
+					<i class="fa fa-file-text-o"></i> <span>Soal Ujian</span>
 				</a>
 			</li>
 			<?php endif; ?>

@@ -89,7 +89,7 @@ Dolore distinctio, at consequuntur magnam cupiditate voluptate hic ratione ea il
 <table id="data-hasil">
     <tr>
         <th>Mata Kuliah</th>
-        <td>{$ujian->nama_matkul}</td>
+        <td>{$ujian->nama_keterampilan}</td>
     </tr>
     <tr>
         <th>Nama Ujian</th>

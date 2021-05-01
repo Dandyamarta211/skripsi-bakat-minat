@@ -33,11 +33,11 @@ class Soal extends CI_Controller {
         ];
         
         if($this->ion_auth->is_admin()){
-            //Jika admin maka tampilkan semua matkul
-            $data['matkul'] = $this->master->getAllMatkul();
+            //Jika admin maka tampilkan semua keterampilan
+            $data['keterampilan'] = $this->master->getAllKeterampilan();
         }else{
-            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
-            $data['matkul'] = $this->soal->getMatkulDosen($user->username);
+            //Jika bukan maka keterampilan dipilih otomatis sesuai keterampilan guru
+            $data['keterampilan'] = $this->soal->getKeterampilanGuru($user->username);
         }
 
 		$this->load->view('_templates/dashboard/_header.php', $data);
@@ -70,11 +70,11 @@ class Soal extends CI_Controller {
         ];
 
         if($this->ion_auth->is_admin()){
-            //Jika admin maka tampilkan semua matkul
-            $data['dosen'] = $this->soal->getAllDosen();
+            //Jika admin maka tampilkan semua keterampilan
+            $data['guru'] = $this->soal->getAllGuru();
         }else{
-            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
-            $data['dosen'] = $this->soal->getMatkulDosen($user->username);
+            //Jika bukan maka keterampilan dipilih otomatis sesuai keterampilan guru
+            $data['guru'] = $this->soal->getKeterampilanGuru($user->username);
         }
 
 		$this->load->view('_templates/dashboard/_header.php', $data);
@@ -93,11 +93,11 @@ class Soal extends CI_Controller {
         ];
         
         if($this->ion_auth->is_admin()){
-            //Jika admin maka tampilkan semua matkul
-            $data['dosen'] = $this->soal->getAllDosen();
+            //Jika admin maka tampilkan semua keterampilan
+            $data['guru'] = $this->soal->getAllGuru();
         }else{
-            //Jika bukan maka matkul dipilih otomatis sesuai matkul dosen
-            $data['dosen'] = $this->soal->getMatkulDosen($user->username);
+            //Jika bukan maka keterampilan dipilih otomatis sesuai keterampilan guru
+            $data['guru'] = $this->soal->getKeterampilanGuru($user->username);
         }
 
 		$this->load->view('_templates/dashboard/_header.php', $data);
@@ -105,15 +105,15 @@ class Soal extends CI_Controller {
 		$this->load->view('_templates/dashboard/_footer.php');
 	}
 
-	public function data($id=null, $dosen=null)
+	public function data($id=null, $guru=null)
 	{
-		$this->output_json($this->soal->getDataSoal($id, $dosen), false);
+		$this->output_json($this->soal->getDataSoal($id, $guru), false);
     }
 
     public function validasi()
     {
         if($this->ion_auth->is_admin()){
-            $this->form_validation->set_rules('dosen_id', 'Dosen', 'required');
+            $this->form_validation->set_rules('guru_id', 'guru', 'required');
         }
         // $this->form_validation->set_rules('soal', 'Soal', 'required');
         // $this->form_validation->set_rules('jawaban_a', 'Jawaban A', 'required');
@@ -207,13 +207,13 @@ class Soal extends CI_Controller {
             }
                 
             if($this->ion_auth->is_admin()){
-                $pecah = $this->input->post('dosen_id', true);
+                $pecah = $this->input->post('guru_id', true);
                 $pecah = explode(':', $pecah);
-                $data['dosen_id'] = $pecah[0];
-                $data['matkul_id'] = end($pecah);
+                $data['guru_id'] = $pecah[0];
+                $data['keterampilan_id'] = end($pecah);
             }else{
-                $data['dosen_id'] = $this->input->post('dosen_id', true);
-                $data['matkul_id'] = $this->input->post('matkul_id', true);
+                $data['guru_id'] = $this->input->post('guru_id', true);
+                $data['keterampilan_id'] = $this->input->post('keterampilan_id', true);
             }
 
             if($method==='add'){

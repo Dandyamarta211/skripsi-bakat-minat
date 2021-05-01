@@ -29,19 +29,19 @@
             <table class="table table-hover">
                 <tr>
                     <th>Nama</th>
-                    <td><?=$dosen->nama_dosen?></td>
+                    <td><?=$guru->nama_guru?></td>
                 </tr>
                 <tr>
                     <th>NIP</th>
-                    <td><?=$dosen->nip?></td>
+                    <td><?=$guru->nip?></td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                    <td><?=$dosen->email?></td>
+                    <td><?=$guru->email?></td>
                 </tr>
                 <tr>
                     <th>Mata Kuliah</th>
-                    <td><?=$dosen->nama_matkul?></td>
+                    <td><?=$guru->nama_keterampilan?></td>
                 </tr>
                 <tr>
                     <th>Daftar Kelas</th>

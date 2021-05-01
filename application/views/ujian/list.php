@@ -45,7 +45,7 @@
                     <tr>
                         <th>No.</th>
                         <th>Nama Ujian</th>
-                        <th>Mata Kuliah</th>
+                        <th>Keterampilan</th>
 						<th>Guru</th>
                         <th>Jumlah Soal</th>
                         <th>Waktu</th>
@@ -56,7 +56,7 @@
                     <tr>
                         <th>No.</th>
                         <th>Nama Ujian</th>
-                        <th>Mata Kuliah</th>
+                        <th>Keterampilan</th>
 						<th>Guru</th>
                         <th>Jumlah Soal</th>
                         <th>Waktu</th>
