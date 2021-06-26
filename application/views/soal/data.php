@@ -13,15 +13,15 @@
 			</div>
 			<div class="form-group col-sm-4 text-center">
 				<?php if ( $this->ion_auth->is_admin() ) : ?>
-					<select id="matkul_filter" class="form-control select2" style="width:100% !important">
+					<select id="keterampilan_filter" class="form-control select2" style="width:100% !important">
 						<option value="all">Semua Keterampilan</option>
-						<?php foreach ($matkul as $m) :?>
-							<option value="<?=$m->id_matkul?>"><?=$m->nama_matkul?></option>
+						<?php foreach ($keterampilan as $m) :?>
+							<option value="<?=$m->id_keterampilan?>"><?=$m->nama_keterampilan?></option>
 						<?php endforeach; ?>
 					</select>
 				<?php endif; ?>
-				<?php if ( $this->ion_auth->in_group('dosen') ) : ?>				
-					<input id="matkul_id" value="<?=$matkul->nama_matkul;?>" type="text" readonly="readonly" class="form-control">
+				<?php if ( $this->ion_auth->in_group('guru') ) : ?>				
+					<input id="keterampilan_id" value="<?=$keterampilan->nama_keterampilan;?>" type="text" readonly="readonly" class="form-control">
 				<?php endif; ?>
 			</div>
 			<div class="col-sm-4">
@@ -71,13 +71,13 @@
 <?php if ( $this->ion_auth->is_admin() ) : ?>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#matkul_filter').on('change', function(){
-		let id_matkul = $(this).val();
+	$('#keterampilan_filter').on('change', function(){
+		let id_keterampilan = $(this).val();
 		let src = '<?=base_url()?>soal/data';
 		let url;
 
-		if(id_matkul !== 'all'){
-			let src2 = src + '/' + id_matkul;
+		if(id_keterampilan !== 'all'){
+			let src2 = src + '/' + id_keterampilan;
 			url = $(this).prop('checked') === true ? src : src2;
 		}else{
 			url = src;
@@ -87,13 +87,13 @@ $(document).ready(function(){
 });
 </script>
 <?php endif; ?>
-<?php if ( $this->ion_auth->in_group('dosen') ) : ?>
+<?php if ( $this->ion_auth->in_group('guru') ) : ?>
 <script type="text/javascript">
 $(document).ready(function(){
-	let id_matkul = '<?=$matkul->matkul_id?>';
-	let id_dosen = '<?=$matkul->id_dosen?>';
+	let id_keterampilan = '<?=$keterampilan->keterampilan_id?>';
+	let id_guru = '<?=$keterampilan->id_guru?>';
 	let src = '<?=base_url()?>soal/data';
-	let url = src + '/' + id_matkul + '/' + id_dosen;
+	let url = src + '/' + id_keterampilan + '/' + id_guru;
 
 	table.ajax.url(url).load();
 });

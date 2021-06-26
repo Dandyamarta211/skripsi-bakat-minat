@@ -18,7 +18,7 @@ class Dashboard extends CI_Controller {
 			
 			[
 				'box' 		=> 'red',
-				'total' 	=> $this->dashboard->total('mahasiswa'),
+				'total' 	=> $this->dashboard->total('siswa'),
 				'title'		=> 'Siswa',
 				'icon'		=> 'user'
 			],
@@ -67,7 +67,7 @@ class Dashboard extends CI_Controller {
 				'kelas b' 	=> 'a.kelas_id = b.id_kelas',
 				'jurusan c'	=> 'b.jurusan_id = c.id_jurusan'
 			];
-			$data['mahasiswa'] = $this->dashboard->get_where('mahasiswa a', 'nim', $user->username, $join)->row();
+			$data['siswa'] = $this->dashboard->get_where('siswa a', 'nim', $user->username, $join)->row();
 		}
 
 		$this->load->view('_templates/dashboard/_header.php', $data);

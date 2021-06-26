@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Bulan Mei 2021 pada 08.21
+-- Waktu pembuatan: 27 Bulan Mei 2021 pada 08.29
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -61,12 +61,8 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `email`, `keterampilan_id`) VALUES
-(1, '12345678', 'riko', 'riko@gmail.com', 5),
 (3, '01234567', 'abi', 'abi@gmail.com', 1),
 (4, '202020202', 'Baru guru', 'guru@gmail.com', 1),
-(5, '22334455', 'Dandy Amarta', 'dandy@dandy.com', 5),
-(17, '67678575565', 'tria', 'tria@gmail.com', 7),
-(18, '12761281', 'aku', 'sdjhfdsj@shjdb.com', 2),
 (19, '345234567', 'new', 'new@nw.com', 1);
 
 --
@@ -100,6 +96,13 @@ CREATE TABLE `h_ujian` (
   `tgl_selesai` datetime NOT NULL,
   `status` enum('Y','N') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `h_ujian`
+--
+
+INSERT INTO `h_ujian` (`id`, `ujian_id`, `siswa_id`, `list_soal`, `list_jawaban`, `jml_benar`, `nilai`, `nilai_bobot`, `tgl_mulai`, `tgl_selesai`, `status`) VALUES
+(5, 4, 3, '11', '11:B:N', 0, '0.00', '100.00', '2021-05-08 10:17:09', '2021-05-08 10:27:09', 'N');
 
 -- --------------------------------------------------------
 
@@ -141,10 +144,10 @@ CREATE TABLE `jurusan_keterampilan` (
 --
 
 INSERT INTO `jurusan_keterampilan` (`id`, `keterampilan_id`, `jurusan_id`) VALUES
-(8, 1, 1),
 (9, 5, 1),
 (10, 3, 2),
-(11, 3, 3);
+(11, 3, 3),
+(12, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -201,8 +204,8 @@ CREATE TABLE `kelas_guru` (
 INSERT INTO `kelas_guru` (`id`, `kelas_id`, `guru_id`) VALUES
 (20, 3, 5),
 (21, 7, 5),
-(22, 16, 4),
-(23, 3, 19);
+(23, 3, 19),
+(27, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -221,7 +224,6 @@ CREATE TABLE `keterampilan` (
 
 INSERT INTO `keterampilan` (`id_keterampilan`, `nama_keterampilan`) VALUES
 (1, 'Bakat'),
-(2, 'minats'),
 (3, 'Bakat'),
 (4, 'Minat');
 
@@ -262,10 +264,7 @@ CREATE TABLE `m_ujian` (
 --
 
 INSERT INTO `m_ujian` (`id_ujian`, `guru_id`, `keterampilan_id`, `nama_ujian`, `jumlah_soal`, `waktu`, `jenis`, `tgl_mulai`, `terlambat`, `token`) VALUES
-(1, 1, 1, 'First Test', 3, 1, 'acak', '2019-02-15 17:25:40', '2019-02-20 17:25:44', 'DPEHL'),
-(2, 1, 1, 'Second Test', 3, 1, 'acak', '2019-02-16 10:05:08', '2019-02-17 10:05:10', 'GOEMB'),
-(3, 3, 5, 'Try Out 01', 2, 1, 'acak', '2019-02-16 07:00:00', '2019-02-28 14:00:00', 'IFSDH'),
-(4, 4, 1, 'bakat', 1, 10, 'acak', '2021-04-24 12:50:34', '2021-04-24 15:00:36', 'KUIVZ'),
+(4, 4, 1, 'bakat', 1, 10, 'acak', '2021-05-08 10:17:00', '2021-05-08 15:00:36', 'KUIVZ'),
 (5, 5, 5, 'bakat', 1, 5, 'acak', '2021-04-25 15:10:21', '2021-04-25 15:15:39', 'MDXJW');
 
 -- --------------------------------------------------------
@@ -321,6 +320,13 @@ CREATE TABLE `tb_soal` (
   `updated_on` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data untuk tabel `tb_soal`
+--
+
+INSERT INTO `tb_soal` (`id_soal`, `guru_id`, `keterampilan_id`, `bobot`, `file`, `tipe_file`, `soal`, `opsi_a`, `opsi_b`, `opsi_c`, `opsi_d`, `opsi_e`, `file_a`, `file_b`, `file_c`, `file_d`, `file_e`, `jawaban`, `created_on`, `updated_on`) VALUES
+(11, 4, 1, 1, '819713aa215c6d83df2e47d4a1f58ead.jpg', 'image/jpeg', '<p>rozi</p>', '<p>kasdasd</p>', '<p>asdasd</p>', '<p>asdasd</p>', '<p>asdasd</p>', '<p>asdad</p>', '', '', '', '', '', 'A', 1620441578, 1620441815);
+
 -- --------------------------------------------------------
 
 --
@@ -354,16 +360,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'dandy@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1619836171, 1, 'Admin', 'Dandy', 'ADMIN', '0'),
+(1, '127.0.0.1', 'Administrator', '$2y$12$tGY.AtcyXrh7WmccdbT1rOuKEcTsKH6sIUmDr0ore1yN4LnKTTtuu', 'dandy@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1621304100, 1, 'Admin', 'Dandy', 'ADMIN', '0'),
 (14, '::1', '01234567', '$2y$10$sHiq6DrjJDlN0.v3sRXEtuyhaH7NbcniLDt9/UDOY2Rsf8m5HKJFC', 'abi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426517, NULL, 1, 'abi', 'abi', NULL, NULL),
-(15, '::1', '12345678', '$2y$10$jElzdK7ixCsmTaPOTpOox.neteL8uigIXWXQRuW8qrtH6xpM/VvqO', 'riko@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426521, NULL, 1, 'riko', 'riko', NULL, NULL),
-(17, '::1', '22334455', '$2y$10$gvZGm8YncJ.HL08DKPeii.FKuIxGE0PdCzX3LBxBhKa2W24jUafVS', 'dandy@dandy.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426528, 1619427134, 1, 'Dandy', 'Amarta', NULL, NULL),
-(18, '::1', '202020202', '$2y$10$FAZSDq9Zt4IbMDayU.9aAOUt7ziprzIpWtKM6KzdbEeQIl.YET34y', 'guru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426532, NULL, 1, 'Baru', 'guru', NULL, NULL),
+(18, '::1', '202020202', '$2y$10$FAZSDq9Zt4IbMDayU.9aAOUt7ziprzIpWtKM6KzdbEeQIl.YET34y', 'guru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426532, 1621226479, 1, 'Baru', 'guru', NULL, NULL),
 (19, '::1', '10101010', '$2y$10$GPYRHDUGtcTx29AZAut5.OfdQEqlujF/w2Y6yFSNQboK5o1ar6nZS', 'tria@tria.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426626, NULL, 1, 'tria', 'tria', NULL, NULL),
-(20, '::1', '20202020', '$2y$10$nf2r4OG9scaOA4fCo99GD.7DM5mq1j1Ol8jLcP1nM.CFPaDTEALN2', 'dandyamarta@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426628, 1619670658, 1, 'dandy', 'dandy', NULL, NULL),
+(20, '::1', '20202020', '$2y$10$nf2r4OG9scaOA4fCo99GD.7DM5mq1j1Ol8jLcP1nM.CFPaDTEALN2', 'dandyamarta@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619426628, 1621228191, 1, 'dandy', 'dandy', NULL, NULL),
 (21, '::1', '56565656', '$2y$10$qnwn3IuK3ho8rd.4yhUE2OEIe2htMZIKpk4CZ1x7zzmz/6TJQkocO', 'fauzi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619527989, NULL, 1, 'fauzi', 'fauzi', NULL, NULL),
 (22, '::1', '888999777', '$2y$10$YgbhTw4Z0zt/i9uNuk/jKuYBT7peDJhJlK/x/hXZPRIBrG5rgMBUq', 'fauzi@fauzi.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619528285, 1619528313, 1, 'fauzi', 'fauzi', NULL, NULL),
-(23, '::1', '12761281', '$2y$10$970oLjzIXCf5Z.O/lvKTy./DUnAERAHj95q13FkC2YoxQFHSN31Pu', 'sdjhfdsj@shjdb.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619846479, NULL, 1, 'aku', 'aku', NULL, NULL),
 (24, '::1', '345234567', '$2y$10$WSsvaFaLo.7U9iZRBQcOUuo5rnT5zuJ3KLdNkiYPERI.0.fxvXpq6', 'new@nw.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1619849419, 1619849668, 1, 'new', 'new', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -385,14 +388,11 @@ CREATE TABLE `users_groups` (
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (3, 1, 1),
 (16, 14, 2),
-(17, 15, 2),
-(19, 17, 2),
 (20, 18, 2),
 (21, 19, 3),
 (22, 20, 3),
 (23, 21, 3),
 (24, 22, 3),
-(25, 23, 2),
 (26, 24, 2);
 
 --
@@ -527,7 +527,7 @@ ALTER TABLE `guru`
 -- AUTO_INCREMENT untuk tabel `h_ujian`
 --
 ALTER TABLE `h_ujian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `jurusan`
@@ -539,7 +539,7 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT untuk tabel `jurusan_keterampilan`
 --
 ALTER TABLE `jurusan_keterampilan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `kelas`
@@ -551,7 +551,7 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT untuk tabel `kelas_guru`
 --
 ALTER TABLE `kelas_guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `keterampilan`
@@ -563,7 +563,7 @@ ALTER TABLE `keterampilan`
 -- AUTO_INCREMENT untuk tabel `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `m_ujian`
@@ -581,7 +581,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT untuk tabel `tb_soal`
 --
 ALTER TABLE `tb_soal`
-  MODIFY `id_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

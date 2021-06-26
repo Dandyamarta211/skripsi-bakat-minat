@@ -40,7 +40,7 @@
                     <td><?=$guru->email?></td>
                 </tr>
                 <tr>
-                    <th>Mata Kuliah</th>
+                    <th>Keterampilan</th>
                     <td><?=$guru->nama_keterampilan?></td>
                 </tr>
                 <tr>
@@ -86,27 +86,27 @@
             <table class="table table-hover">
                 <tr>
                     <th>NIS</th>
-                    <td><?=$mahasiswa->nim?></td>
+                    <td><?=$siswa->nim?></td>
                 </tr>
                 <tr>
                     <th>Nama</th>
-                    <td><?=$mahasiswa->nama?></td>
+                    <td><?=$siswa->nama?></td>
                 </tr>
                 <tr>
                     <th>Jenis Kelamin</th>
-                    <td><?=$mahasiswa->jenis_kelamin === 'L' ? "Laki-laki" : "Perempuan" ;?></td>
+                    <td><?=$siswa->jenis_kelamin === 'L' ? "Laki-laki" : "Perempuan" ;?></td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                    <td><?=$mahasiswa->email?></td>
+                    <td><?=$siswa->email?></td>
                 </tr>
                 <tr>
                     <th>Jurusan</th>
-                    <td><?=$mahasiswa->nama_jurusan?></td>
+                    <td><?=$siswa->nama_jurusan?></td>
                 </tr>
                 <tr>
                     <th>Kelas</th>
-                    <td><?=$mahasiswa->nama_kelas?></td>
+                    <td><?=$siswa->nama_kelas?></td>
                 </tr>
             </table>
         </div>
