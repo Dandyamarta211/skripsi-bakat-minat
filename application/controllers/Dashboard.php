@@ -56,7 +56,9 @@ class Dashboard extends CI_Controller {
 
 		if ( $this->ion_auth->is_admin() ) {
 			$data['info_box'] = $this->admin_box();
-		} elseif ( $this->ion_auth->in_group('guru') ) {
+		} elseif ( $this->ion_auth->in_group('kepala sekolah') ) {
+			$data['guru'] = $this->dashboard->get_where('guru', 'nip', $user->username)->row();
+		}elseif ( $this->ion_auth->in_group('guru') ) {
 			$keterampilan = ['keterampilan' => 'guru.keterampilan_id=keterampilan.id_keterampilan'];
 			$data['guru'] = $this->dashboard->get_where('guru', 'nip', $user->username, $keterampilan)->row();
 

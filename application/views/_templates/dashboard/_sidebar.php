@@ -107,7 +107,15 @@
 				</a>
 			</li>
 			<?php endif; ?>
-			<?php if( !$this->ion_auth->in_group('siswa') ) : ?>
+			<?php if( $this->ion_auth->in_group('kepala sekolah') ) : ?>
+			<li class="header">REPORTS</li>
+			<li class="<?=$page==='hasilkepsek'?"active":""?>">
+				<a href="<?=base_url('hasilkepsek')?>" rel="noopener noreferrer">
+					<i class="fa fa-file"></i> <span>Hasil Ujian Kepsek</span>
+				</a>
+			</li>
+			<?php endif; ?>
+			<?php if( !$this->ion_auth->in_group('siswa') && !$this->ion_auth->in_group('kepala sekolah')) : ?>
 			<li class="header">REPORTS</li>
 			<li class="<?=$page==='hasilujian'?"active":""?>">
 				<a href="<?=base_url('hasilujian')?>" rel="noopener noreferrer">

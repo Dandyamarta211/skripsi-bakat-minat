@@ -18,6 +18,50 @@
     <?php endforeach; ?>
 </div>
 
+<?php elseif( $this->ion_auth->in_group('kepala sekolah') ) : ?>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Informasi Akun Kepala Sekolah</h3>
+            </div>
+            <table class="table table-hover">
+            
+                <tr>
+                    <th>Nama</th>
+                    <td><?=$guru->nama_guru?></td>
+                </tr>
+                <tr>
+                    <th>NIP</th>
+                    <td><?=$guru->nip?></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><?=$guru->email?></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="box box-solid">
+            <div class="box-header bg-purple">
+                <h3 class="box-title">Pemberitahuan</h3>
+            </div>
+            <div class="box-body">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem in animi quibusdam nihil esse ratione, nulla sint enim natus, aut mollitia quas veniam, tempore quia!</p>
+                <ul class="pl-4">
+                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, culpa.</li>
+                    <li>Provident dolores doloribus, fugit aperiam alias tempora saepe non omnis.</li>
+                    <li>Doloribus sed eum et repellat distinctio a repudiandae quia voluptates.</li>
+                    <li>Adipisci hic rerum illum odit possimus voluptatibus ad aliquid consequatur.</li>
+                    <li>Laudantium sapiente architecto excepturi beatae est minus, labore non libero.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php elseif( $this->ion_auth->in_group('guru') ) : ?>
 
 <div class="row">
@@ -27,7 +71,7 @@
                 <h3 class="box-title">Informasi Akun</h3>
             </div>
             <table class="table table-hover">
-                <tr>
+                <tr> 
                     <th>Nama</th>
                     <td><?=$guru->nama_guru?></td>
                 </tr>
